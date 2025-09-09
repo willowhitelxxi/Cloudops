@@ -1,0 +1,21 @@
+KPI_Name,Revenue_Stage,Financial_Impact_Type,Business_Connection,Revenue_Impact,Cashflow_Impact,Financial_Priority
+Time to Market for New Services,Order Entry/Sales,Revenue Generation,Faster service development leads to competitive advantage,15-30% increase in sales velocity,Reduces time to first payment by 30-60 days,High
+Innovation Pipeline Velocity,Order Entry/Sales,Revenue Generation,Innovative offerings command premium pricing,10-25% premium pricing for innovative solutions,Higher margin projects improve cash generation,Medium
+Customer Satisfaction Score,Order Entry/Sales,Revenue Generation,High CSAT drives referrals and easier sales,3-6 month reduction in average sales cycle,Shorter sales cycles reduce working capital needs,High
+Automation Coverage %,Project Delivery,Cost Reduction & Revenue,Reduces delivery costs and accelerates completion,"15-25% reduction in delivery costs, 20-30% faster completion","Faster milestone payments, reduced working capital",Very High
+Change Success Rate,Project Delivery,Cost Avoidance,Prevents costly rework and project delays,5-10% improvement in project margins,Avoids cost overruns that delay payments,High
+Resource Utilization Rate,Project Delivery,Revenue Optimization,Maximizes billable hours and revenue per employee,10-20% increase in revenue per consultant,Improved utilization accelerates revenue recognition,Very High
+Mean Time to Recovery (MTTR),Project Delivery,Cost Avoidance,Reduces service disruptions and penalty costs,2-5% reduction in SLA penalty costs,"Maintains payment schedules, avoids penalties",Medium
+Service Availability/Uptime %,Service Operations,Revenue Maintenance,Ensures SLA compliance and full payment receipt,99.9% uptime maintains 100% of contractual revenue,Consistent recurring revenue streams,Very High
+First Contact Resolution Rate,Service Operations,Cost Reduction,Reduces support costs and improves margins,20-30% reduction in support costs per incident,Lower operational costs improve cash generation,High
+Cloud Spend Optimization Rate,Service Operations,Margin Improvement,Better cost management improves service margins,10-20% improvement in managed services margins,Cost savings improve cash flow,High
+Customer Satisfaction Score,Customer Expansion,Revenue Growth,Drives renewals and upsell opportunities,90%+ CSAT correlates with 85%+ renewal rates,Predictable renewal revenue improves forecasting,Very High
+"Cloud, Data & AI Integration Score",Customer Expansion,Premium Revenue,Advanced capabilities command higher prices,25-40% higher revenue per integrated customer,Higher-value services get better payment terms,High
+SLA Compliance,Customer Expansion,Revenue Growth,Builds trust for contract expansions,99%+ compliance enables 15-25% account growth,Maintains contractual terms without penalties,High
+Deployment Frequency,Cash Inflow,Payment Acceleration,Faster deployments accelerate billing cycles,30-45 day improvement in cash collection,Earlier milestone completion,High
+Total Cost of Ownership Reduction,Cash Outflow,Cost Control,Reduces operational expenses,10-15% annual reduction in operational costs,Better cash retention,High
+Vendor Cost Savings,Cash Outflow,Procurement Efficiency,Lower vendor costs improve margins,5-10% reduction in vendor costs,Improved cash margins,Medium
+Event Correlation Effectiveness,Cash Outflow,Operational Efficiency,Reduces false alarms and overhead,15-20% reduction in support costs,Lower operational cash burn,Medium
+Multi-Cloud Management Efficiency,Working Capital,Resource Optimization,Reduces over-provisioning needs,20-30% reduction in infrastructure working capital,Better resource planning,High
+Predictive Analytics Accuracy,Risk Mitigation,Cost Avoidance,Prevents issues before they impact revenue,10-15% reduction in unplanned costs,Avoids service disruption costs,Medium
+Security Compliance Score,Risk Mitigation,Revenue Protection,Prevents compliance penalties and contract loss,Maintains 100% of contracted revenue,Avoids penalty payments and contract cancellations,High
