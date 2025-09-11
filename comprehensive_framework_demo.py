@@ -20,7 +20,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS - Atos Cloud Services Brand Style
+# Custom CSS - Atos Brand Style
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
@@ -32,55 +32,63 @@ st.markdown("""
 
 .atos-card {
     background: #FFFFFF;
-    border: 1px solid #E1E5E9;
+    border: 1px solid #E5E5E5;
     padding: 2rem;
-    border-radius: 4px;
+    border-radius: 0;
     margin: 1rem 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: none;
 }
 
 .atos-metric {
     background: #FFFFFF;
-    border: 1px solid #E1E5E9;
+    border: 1px solid #E5E5E5;
     padding: 2rem;
-    border-radius: 4px;
+    border-radius: 0;
     margin: 0.5rem 0;
     text-align: center;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    box-shadow: none;
 }
 
 .atos-primary {
-    background: #0052CC;
+    background: #0066CC;
     color: white;
-    padding: 1.5rem;
-    border-radius: 4px;
+    padding: 2rem;
+    border-radius: 0;
     margin: 1rem 0;
 }
 
 .atos-secondary {
-    background: #F4F5F7;
-    border: 1px solid #E1E5E9;
+    background: #F8F9FA;
+    border: 1px solid #E5E5E5;
     padding: 2rem;
-    border-radius: 4px;
+    border-radius: 0;
     margin: 1rem 0;
 }
 
 .atos-accent {
     background: #FF6900;
     color: white;
-    padding: 1rem 1.5rem;
-    border-radius: 4px;
+    padding: 1.5rem 2rem;
+    border-radius: 0;
     font-weight: 600;
 }
 
+.atos-dark {
+    background: #2C3E50;
+    color: white;
+    padding: 2rem;
+    border-radius: 0;
+    margin: 1rem 0;
+}
+
 h1 {
-    color: #0052CC;
+    color: #0066CC;
     font-weight: 700;
     font-size: 2.5rem;
 }
 
 h2 {
-    color: #0052CC;
+    color: #0066CC;
     font-weight: 600;
     font-size: 1.8rem;
 }
@@ -88,6 +96,14 @@ h2 {
 h3 {
     color: #2C3E50;
     font-weight: 600;
+}
+
+.metric-box {
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    padding: 1.5rem;
+    margin: 0.5rem 0;
+    text-align: center;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -223,18 +239,19 @@ def main():
     # Sidebar navigation
     st.sidebar.title("☁️ Managed Service Cloud Operations KPI Framework")
     page = st.sidebar.selectbox("Navigate", [
-        "Executive Summary", 
-        "5 Key Outcomes",
-        "KPI Performance Dashboard", 
+        "KPI Framework", 
         "Revenue Lifecycle Integration",
-        "Traditional vs Modern KPIs",
+        "5 Key Outcomes",
         "AI Impact Analysis",
-        "Implementation Roadmap"
+        "KPI Performance Dashboard", 
+        "Traditional vs Modern KPIs",
+        "Implementation Roadmap",
+        "Strategic Story"
     ])
     
-    if page == "Executive Summary":
-        st.title("📊 Comprehensive KPI Framework for Managed Service Cloud Operations")
-        st.markdown("*From Strategy to Revenue Impact*")
+    if page == "KPI Framework":
+        st.title("📊 KPI Framework for Managed Service Cloud Operations")
+        st.markdown("*28 Strategic KPIs across 7 categories driving 5 key outcomes*")
         
         # Key findings
         col1, col2, col3, col4 = st.columns(4)
@@ -365,12 +382,12 @@ def main():
                 card_class = "atos-card" + (" selected" if is_selected else "")
                 st.markdown(f"""
                 <div class="{card_class}" style="{border_style}">
-                    <h3 style="color: #0052CC; margin: 0 0 1rem 0; text-align: center; font-size: 1.1em;">{cat_name.split(' &')[0]}</h3>
+                    <h3 style="color: #1A1A1A; margin: 0 0 1rem 0; text-align: center; font-size: 1.1em;">{cat_name.split(' &')[0]}</h3>
                     <div style="text-align: center; margin: 1.5rem 0;">
-                        <div style="background: #0052CC; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto; font-size: 1.8em; font-weight: bold;">{len(cat_data['kpis'])}</div>
-                        <p style="margin: 0; color: #6B7280; font-size: 0.9em;">Strategic KPIs</p>
+                        <div style="background: #0070F3; color: white; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto; font-size: 1.8em; font-weight: bold;">{len(cat_data['kpis'])}</div>
+                        <p style="margin: 0; color: #666666; font-size: 0.9em;">Strategic KPIs</p>
                     </div>
-                    <div style="display: flex; justify-content: space-between; padding-top: 1rem; border-top: 1px solid #E1E5E9; font-size: 0.8em; color: #6B7280;">
+                    <div style="display: flex; justify-content: space-between; padding-top: 1rem; border-top: 1px solid #E5E5E5; font-size: 0.8em; color: #666666;">
                         <span>Maturity: <strong>{cat_data['maturity']}</strong></span>
                         <span>Impact: <strong>{cat_data['impact']}</strong></span>
                     </div>
@@ -421,9 +438,185 @@ def main():
                 with col2:
                     st.markdown(f"**Business Impact:** {kpi['impact']}")
     
+    elif page == "Strategic Story":
+        st.title("📖 The Strategic Transformation Story")
+        st.markdown("*From Managed Service Cloud Operations KPI Metrics to Business Excellence: An Interactive Journey*")
+        
+        # Initialize story progress
+        if 'story_step' not in st.session_state:
+            st.session_state.story_step = 0
+        
+        # Story progress indicator
+        story_steps = ["🎯 KPI Foundation", "🔄 Lifecycle Impact", "🏆 Business Outcomes", "🤖 AI Enhancement"]
+        
+        # Progress bar
+        progress_cols = st.columns(4)
+        for i, step in enumerate(story_steps):
+            with progress_cols[i]:
+                if i <= st.session_state.story_step:
+                    st.markdown(f"<div class='atos-primary' style='text-align: center; margin: 0.5rem 0;'><strong style='color: white;'>{step}</strong></div>", unsafe_allow_html=True)
+                else:
+                    st.markdown(f"<div class='atos-secondary' style='text-align: center; margin: 0.5rem 0; color: #666666;'>{step}</div>", unsafe_allow_html=True)
+        
+        st.markdown("---")
+        
+        # Story Step 0: KPI Foundation
+        if st.session_state.story_step >= 0:
+            st.markdown("## 🎯 The Foundation - Strategic KPI Framework")
+            st.markdown("*Our journey begins with 28 strategic KPIs that form the backbone of operational excellence...*")
+            
+            # All 7 KPI categories with complete data
+            kpi_story_data = {
+                "Cost Optimization": {"kpis": 4, "impact": "10-15% efficiency gains", "color": "#FF6B6B", "details": ["TCO Reduction %", "Cost per Service", "Cloud Spend Optimization", "Vendor Cost Savings"]},
+                "Operational Excellence": {"kpis": 4, "impact": "99.9% reliability targets", "color": "#4ECDC4", "details": ["Automation Coverage %", "Mean Time to Recovery", "Service Availability", "Change Success Rate"]},
+                "Security & Compliance": {"kpis": 4, "impact": ">95% compliance achievement", "color": "#45B7D1", "details": ["Security Compliance Score", "Vulnerability Patching Time", "Incident Response Time", "Policy Violation Rate"]},
+                "Service Delivery": {"kpis": 4, "impact": ">90% customer satisfaction", "color": "#96CEB4", "details": ["Customer Satisfaction Score", "SLA Compliance", "First Contact Resolution", "Time to Market"]},
+                "Innovation & Technology": {"kpis": 4, "impact": "25-40% capability enhancement", "color": "#FECA57", "details": ["AI Integration Score", "Data Analytics Utilization", "Innovation Pipeline Velocity", "Technology Modernization"]},
+                "Continuous Improvement": {"kpis": 4, "impact": "20-50% process optimization", "color": "#FF9FF3", "details": ["Predictive Analytics Accuracy", "Root Cause Resolution", "Process Improvement Rate", "Event Correlation"]},
+                "Resource Management": {"kpis": 4, "impact": "70-85% utilization efficiency", "color": "#1ABC9C", "details": ["Resource Utilization Rate", "Multi-Cloud Management", "Deployment Frequency", "Infrastructure Standardization"]}
+            }
+            
+            # Display all 7 categories in grid
+            kpi_cols1 = st.columns(4)
+            kpi_cols2 = st.columns(3)
+            
+            for i, (category, data) in enumerate(kpi_story_data.items()):
+                col = kpi_cols1[i] if i < 4 else kpi_cols2[i-4]
+                with col:
+                    with st.expander(f"{category} ({data['kpis']} KPIs)"):
+                        st.markdown(f"**Impact:** {data['impact']}")
+                        st.markdown("**KPIs:**")
+                        for kpi in data['details']:
+                            st.markdown(f"• {kpi}")
+            
+            if st.session_state.story_step == 0:
+                if st.button("▶️ Continue Story: See How These KPIs Drive Lifecycle Improvements", use_container_width=True):
+                    st.session_state.story_step = 1
+                    st.rerun()
+        
+        # Story Step 1: Lifecycle Impact
+        if st.session_state.story_step >= 1:
+            st.markdown("## 🔄 The Journey - Revenue Lifecycle Transformation")
+            st.markdown("*These KPIs now drive measurable improvements across every stage of our customer journey...*")
+            
+            # Interactive lifecycle flow with detailed KPI mappings
+            lifecycle_stages = [
+                {
+                    "name": "Order Entry & Sales", "icon": "🎯", "improvement": "30% faster time-to-market", "color": "#FF6B6B",
+                    "kpis": ["Time to Market for New Services: 30% reduction", "Innovation Pipeline Velocity: 2-3 initiatives/quarter", "Customer Satisfaction: >4.5/5.0"],
+                    "mechanism": "Faster service development creates competitive advantage, reduces time to first payment by 30-60 days"
+                },
+                {
+                    "name": "Project Delivery", "icon": "⚡", "improvement": "25% efficiency gains", "color": "#4ECDC4",
+                    "kpis": ["Automation Coverage: >80% processes", "Resource Utilization: 70-85% optimal", "Change Success Rate: >95% success"],
+                    "mechanism": "Operational excellence translates to higher margins, faster cash collection, improved customer satisfaction"
+                },
+                {
+                    "name": "Service Operations", "icon": "🛡️", "improvement": "99.9% reliability", "color": "#45B7D1",
+                    "kpis": ["Service Availability: 99.9% uptime", "First Contact Resolution: >75% first contact", "Cloud Optimization: >85% optimized"],
+                    "mechanism": "Operational excellence maintains revenue base while reducing costs, creating sustainable competitive advantages"
+                },
+                {
+                    "name": "Customer Expansion", "icon": "📈", "improvement": "85% retention rates", "color": "#FECA57",
+                    "kpis": ["Customer Satisfaction: >4.5/5.0", "AI Integration Score: >60% integrated", "SLA Compliance: >99% compliance"],
+                    "mechanism": "Satisfied customers become sources of predictable growth, reducing acquisition costs while increasing lifetime value"
+                }
+            ]
+            
+            lifecycle_cols = st.columns(4)
+            for i, stage in enumerate(lifecycle_stages):
+                with lifecycle_cols[i]:
+                    with st.expander(f"{stage['icon']} {stage['name']}"):
+                        st.markdown(f"**Improvement:** {stage['improvement']}")
+                        st.markdown("**Key KPIs:**")
+                        for kpi in stage['kpis']:
+                            st.markdown(f"• {kpi}")
+                        st.markdown(f"**Revenue Mechanism:** {stage['mechanism']}")
+            
+            if st.session_state.story_step == 1:
+                if st.button("▶️ Continue Story: Discover the Business Outcomes", use_container_width=True):
+                    st.session_state.story_step = 2
+                    st.rerun()
+        
+        # Story Step 2: Business Outcomes
+        if st.session_state.story_step >= 2:
+            st.markdown("## 🏆 The Results - Five Key Business Outcomes")
+            st.markdown("*These lifecycle improvements culminate in five transformational business outcomes...*")
+            
+            outcomes_data = [
+                {"title": "Cost Reduction & Vendor Management", "target": "10-15% TCO reduction", "color": "#E74C3C", "kpis": ["TCO Reduction %", "Cloud Spend Optimization", "Vendor Cost Savings"]},
+                {"title": "Security & Compliance Excellence", "target": ">95% compliance rate", "color": "#9B59B6", "kpis": ["Security Compliance Score", "Vulnerability Patching", "Incident Response"]},
+                {"title": "Strategic Service Delivery", "target": ">90% customer satisfaction", "color": "#2ECC71", "kpis": ["Customer Satisfaction", "SLA Compliance", "Time to Market"]},
+                {"title": "Innovation & AI Synergies", "target": "25-40% capability premium", "color": "#F39C12", "kpis": ["AI Integration Score", "Data Analytics Utilization", "Innovation Velocity"]},
+                {"title": "Continuous Improvement", "target": "20-50% efficiency gains", "color": "#E67E22", "kpis": ["Predictive Analytics Accuracy", "Root Cause Resolution", "Event Correlation"]}
+            ]
+            
+            # Display all 5 outcomes
+            outcome_cols1 = st.columns(3)
+            outcome_cols2 = st.columns(2)
+            
+            for i, outcome in enumerate(outcomes_data):
+                col = outcome_cols1[i] if i < 3 else outcome_cols2[i-3]
+                with col:
+                    with st.expander(f"{outcome['title']}"):
+                        st.markdown(f"**Target:** {outcome['target']}")
+                        st.markdown("**Key KPIs:**")
+                        for kpi in outcome['kpis']:
+                            st.markdown(f"• {kpi}")
+            
+            if st.session_state.story_step == 2:
+                if st.button("▶️ Continue Story: See How AI Amplifies Everything", use_container_width=True):
+                    st.session_state.story_step = 3
+                    st.rerun()
+        
+        # Story Step 3: AI Enhancement
+        if st.session_state.story_step >= 3:
+            st.markdown("## 🤖 The Amplifier - AI Impact on Performance")
+            st.markdown("*Finally, AI acts as a force multiplier, amplifying every aspect of our framework...*")
+            
+            # Interactive AI impact sections
+            ai_cols = st.columns(2)
+            
+            with ai_cols[0]:
+                with st.expander("✅ SUCCESS FACTORS (58% Implementation Rate)"):
+                    st.markdown("**Positive AI Impact:**")
+                    st.markdown("• Sales Forecasting: Up to 50% accuracy improvement")
+                    st.markdown("• Customer Acquisition: 20-30% cost reduction")
+                    st.markdown("• Operational Efficiency: 20-25% productivity gains")
+                    st.markdown("• Decision Speed: 50-70% faster cycles")
+                    st.markdown("**Success Patterns:**")
+                    st.markdown("• Business-centric approach focusing on outcomes")
+                    st.markdown("• External partnerships with AI specialists")
+                    st.markdown("• Comprehensive governance with multiple metrics")
+            
+            with ai_cols[1]:
+                with st.expander("⚠️ RISK FACTORS (42% Failure Rate)"):
+                    st.markdown("**Negative AI Impact:**")
+                    st.markdown("• Project Failures: 80-95% never reach production")
+                    st.markdown("• Zero ROI: 42% of enterprises see no return")
+                    st.markdown("• Quality Issues: Increased errors and bias")
+                    st.markdown("• Cost Overruns: Significant unexpected expenses")
+                    st.markdown("**Common Failure Causes:**")
+                    st.markdown("• Technology-first mindset without business alignment")
+                    st.markdown("• Internal development without sufficient expertise")
+                    st.markdown("• Single metric optimization (Goodhart's Law)")
+            
+            # Story conclusion
+            st.markdown("""
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 3rem; border-radius: 20px; text-align: center; margin: 2rem 0;">
+                <h2 style="margin: 0 0 1rem 0; color: white;">🎯 The Complete Story</h2>
+                <p style="margin: 0; font-size: 1.2em; line-height: 1.6;">28 Strategic KPIs → Drive Revenue Lifecycle Excellence → Achieve Business Outcomes → Amplified by AI, modernisation, and continuous integration</p>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            # Reset story button
+            if st.button("🔄 Restart Story Journey", use_container_width=True):
+                st.session_state.story_step = 0
+                st.rerun()
+    
     elif page == "5 Key Outcomes":
         st.title("🎯 Five Key Business Outcomes")
-        st.markdown("*Strategic objectives driving the Managed Service Cloud Operations role*")
+        st.markdown("*Strategic objectives driving the Managed Service Cloud Operations framework*")
         
         outcomes = create_outcome_overview()
         
@@ -432,19 +625,19 @@ def main():
             st.markdown(f"""
             <div class="atos-secondary">
                 <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-                    <div style="background: #0052CC; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">{i+1}</div>
-                    <h2 style="margin: 0; color: #0052CC; font-size: 1.5em;">{outcome['title']}</h2>
+                    <div style="background: #0070F3; color: white; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">{i+1}</div>
+                    <h2 style="margin: 0; color: #1A1A1A; font-size: 1.5em;">{outcome['title']}</h2>
                 </div>
-                <p style="color: #2C3E50; font-size: 1.1em; line-height: 1.6; margin-bottom: 2rem;">{outcome['description']}</p>
+                <p style="color: #666666; font-size: 1.1em; line-height: 1.6; margin-bottom: 2rem;">{outcome['description']}</p>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                     <div>
-                        <h4 style="color: #0052CC; margin-bottom: 1rem;">Key Performance Indicators</h4>
-                        <ul style="color: #2C3E50; margin: 0; padding-left: 1.5rem;">
+                        <h4 style="color: #1A1A1A; margin-bottom: 1rem;">Key Performance Indicators</h4>
+                        <ul style="color: #666666; margin: 0; padding-left: 1.5rem;">
                             {''.join([f'<li style="margin-bottom: 0.5rem;">{kpi}</li>' for kpi in outcome['kpis']])}
                         </ul>
                     </div>
                     <div>
-                        <h4 style="color: #0052CC; margin-bottom: 1rem;">Target Impact</h4>
+                        <h4 style="color: #1A1A1A; margin-bottom: 1rem;">Target Impact</h4>
                         <div class="atos-accent" style="text-align: center;">
                             <span style="font-size: 1.3em; font-weight: bold;">{outcome['target']}</span>
                         </div>
@@ -454,8 +647,8 @@ def main():
             """, unsafe_allow_html=True)
     
     elif page == "KPI Performance Dashboard":
-        st.title("📈 Live KPI Performance Dashboard")
-        st.markdown("*Real-time monitoring of 28 strategic KPIs*")
+        st.title("📈 KPI Performance Dashboard")
+        st.markdown("*Real-time monitoring of 28 strategic KPIs for Managed Service Cloud Operations*")
         
         kpis = simulator.get_kpi_performance()
         revenue_impact = simulator.calculate_revenue_impact(kpis)
@@ -540,86 +733,245 @@ def main():
     
     elif page == "Revenue Lifecycle Integration":
         st.title("🔄 Revenue Lifecycle Integration")
-        st.markdown("*How KPIs drive value across the customer journey*")
+        st.markdown("*How Managed Service Cloud Operations KPIs create measurable business value across the customer journey*")
         
-        # Revenue stages with KPI mapping
-        stages = [
-            {
-                "name": "Order Entry & Sales",
-                "kpis": ["Time to Market", "Innovation Velocity", "Customer Satisfaction"],
-                "impact": "15-30% sales velocity improvement",
-                "mechanism": "Faster service development creates competitive advantage"
-            },
-            {
-                "name": "Project Delivery", 
-                "kpis": ["Automation Coverage", "Resource Utilization", "Change Success Rate"],
-                "impact": "15-25% cost reduction, 20-30% faster delivery",
-                "mechanism": "Operational excellence improves margins and timing"
-            },
-            {
-                "name": "Service Operations",
-                "kpis": ["Service Availability", "First Contact Resolution", "Cloud Optimization"],
-                "impact": "Maintains 100% contracted revenue",
-                "mechanism": "Reliability protects recurring revenue streams"
-            },
-            {
-                "name": "Customer Expansion",
-                "kpis": ["Customer Satisfaction", "AI Integration", "SLA Compliance"], 
-                "impact": "85%+ renewal rates, 25-40% revenue premium",
-                "mechanism": "Excellence drives retention and growth"
-            }
-        ]
+        # Header with Atos theme
+        st.markdown("""
+        <div class="atos-primary">
+            <h2 style="margin: 0 0 1rem 0; font-size: 2.5em; color: white; text-align: center;">💰 REVENUE FLOW VISUALIZATION</h2>
+            <p style="margin: 0; font-size: 1.3em; color: white; text-align: center;">Watch KPIs Drive Revenue Across the Customer Journey</p>
+        </div>
+        """, unsafe_allow_html=True)
         
-        for i, stage in enumerate(stages):
-            st.markdown(f"""
-            <div class="atos-secondary">
-                <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-                    <div style="background: #0052CC; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">{i+1}</div>
-                    <h3 style="margin: 0; color: #0052CC;">Stage {i+1}: {stage['name']}</h3>
+        # Interactive revenue flow diagram using Streamlit columns
+        st.markdown("""
+        <div class="atos-secondary">
+            <h3 style="text-align: center; color: #0066CC; margin-bottom: 2rem;">Revenue Lifecycle Flow</h3>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Create the flow using Streamlit columns
+        flow_cols = st.columns([2, 1, 2, 1, 2, 1, 2])
+        
+        with flow_cols[0]:
+            st.markdown("""
+            <div style="text-align: center;">
+                <div style="background: #0066CC; width: 120px; height: 120px; border-radius: 0; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto; color: white; font-weight: bold; font-size: 1.1em;">
+                    🎯<br>SALES
                 </div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin: 1.5rem 0;">
-                    <div>
-                        <h4 style="color: #0052CC; margin-bottom: 1rem;">Key KPIs</h4>
-                        <p style="color: #2C3E50;">{', '.join(stage['kpis'])}</p>
-                    </div>
-                    <div>
-                        <h4 style="color: #0052CC; margin-bottom: 1rem;">Revenue Impact</h4>
-                        <div class="atos-accent" style="padding: 0.75rem; font-size: 0.9em;">{stage['impact']}</div>
-                    </div>
-                    <div>
-                        <h4 style="color: #0052CC; margin-bottom: 1rem;">Mechanism</h4>
-                        <p style="color: #2C3E50;">{stage['mechanism']}</p>
-                    </div>
-                </div>
+                <h4 style="color: #0066CC; margin: 0; text-align: center;">Order Entry</h4>
             </div>
             """, unsafe_allow_html=True)
         
-        # Cascade effects
-        st.subheader("📈 Cascade Effects Analysis")
+        with flow_cols[1]:
+            st.markdown("<div style='text-align: center; font-size: 2em; color: #0066CC; padding-top: 3rem;'>→</div>", unsafe_allow_html=True)
+        
+        with flow_cols[2]:
+            st.markdown("""
+            <div style="text-align: center;">
+                <div style="background: #0066CC; width: 120px; height: 120px; border-radius: 0; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto; color: white; font-weight: bold; font-size: 1.1em;">
+                    ⚡<br>DELIVERY
+                </div>
+                <h4 style="color: #0066CC; margin: 0; text-align: center;">Project Delivery</h4>
+            </div>
+            """, unsafe_allow_html=True)
+        
+        with flow_cols[3]:
+            st.markdown("<div style='text-align: center; font-size: 2em; color: #0066CC; padding-top: 3rem;'>→</div>", unsafe_allow_html=True)
+        
+        with flow_cols[4]:
+            st.markdown("""
+            <div style="text-align: center;">
+                <div style="background: #2C3E50; width: 120px; height: 120px; border-radius: 0; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto; color: white; font-weight: bold; font-size: 1.1em;">
+                    🛡️<br>OPERATIONS
+                </div>
+                <h4 style="color: #2C3E50; margin: 0; text-align: center;">Service Operations</h4>
+            </div>
+            """, unsafe_allow_html=True)
+        
+        with flow_cols[5]:
+            st.markdown("<div style='text-align: center; font-size: 2em; color: #0066CC; padding-top: 3rem;'>→</div>", unsafe_allow_html=True)
+        
+        with flow_cols[6]:
+            st.markdown("""
+            <div style="text-align: center;">
+                <div style="background: #FF6900; width: 120px; height: 120px; border-radius: 0; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto; color: white; font-weight: bold; font-size: 1.1em;">
+                    📈<br>GROWTH
+                </div>
+                <h4 style="color: #FF6900; margin: 0; text-align: center;">Customer Expansion</h4>
+            </div>
+            """, unsafe_allow_html=True)
+        
+        st.markdown("<br>", unsafe_allow_html=True)
+        
+        # Interactive stage selector
+        st.markdown("### 🎮 Interactive Stage Explorer")
+        st.markdown("*Click on any stage below to see detailed KPI performance metrics*")
+        
+        # Stage data with enhanced visuals
+        stages = [
+            {
+                "stage": "🎯 Order Entry & Sales",
+                "icon": "🎯",
+                "color": "#0066CC",
+                "objective": "Accelerate customer acquisition through operational excellence",
+                "kpis": [
+                    {"name": "Time to Market", "target": "30% reduction", "current": "85%", "impact": "15-30% sales velocity boost"},
+                    {"name": "Innovation Velocity", "target": "2-3 initiatives/quarter", "current": "92%", "impact": "10-25% premium pricing"},
+                    {"name": "Customer Satisfaction", "target": ">4.5/5.0", "current": "88%", "impact": "3-6 month cycle reduction"}
+                ],
+                "revenue_flow": "Faster service development → Competitive advantage → 30-60 day payment acceleration"
+            },
+            {
+                "stage": "⚡ Project Delivery",
+                "icon": "⚡",
+                "color": "#2C3E50",
+                "objective": "Optimize project profitability through operational efficiency",
+                "kpis": [
+                    {"name": "Automation Coverage", "target": ">80% processes", "current": "91%", "impact": "15-25% cost reduction"},
+                    {"name": "Resource Utilization", "target": "70-85% optimal", "current": "78%", "impact": "10-20% revenue per consultant"},
+                    {"name": "Change Success Rate", "target": ">95% success", "current": "96%", "impact": "5-10% margin improvement"}
+                ],
+                "revenue_flow": "Operational excellence → Higher margins → Faster cash collection → Customer satisfaction"
+            },
+            {
+                "stage": "🛡️ Service Operations",
+                "icon": "🛡️",
+                "color": "#6B7280",
+                "objective": "Protect recurring revenue streams through reliability",
+                "kpis": [
+                    {"name": "Service Availability", "target": "99.9% uptime", "current": "99.95%", "impact": "100% contracted revenue"},
+                    {"name": "First Contact Resolution", "target": ">75% first contact", "current": "82%", "impact": "20-30% support cost reduction"},
+                    {"name": "Cloud Optimization", "target": ">85% optimized", "current": "89%", "impact": "10-20% margin improvement"}
+                ],
+                "revenue_flow": "Operational excellence → Revenue protection → Cost reduction → Competitive advantage"
+            },
+            {
+                "stage": "📈 Customer Expansion",
+                "icon": "📈",
+                "color": "#FF6900",
+                "objective": "Drive account growth through service excellence",
+                "kpis": [
+                    {"name": "Customer Satisfaction", "target": ">4.5/5.0", "current": "4.7", "impact": "85%+ renewal correlation"},
+                    {"name": "AI Integration Score", "target": ">60% integrated", "current": "72%", "impact": "25-40% higher revenue"},
+                    {"name": "SLA Compliance", "target": ">99% compliance", "current": "99.2%", "impact": "15-25% expansion enablement"}
+                ],
+                "revenue_flow": "Service excellence → Customer satisfaction → Predictable growth → Reduced acquisition costs"
+            }
+        ]
+        
+        # Initialize session state for stage selection
+        if 'selected_stage' not in st.session_state:
+            st.session_state.selected_stage = 0
+        
+        # Stage selector buttons
+        cols = st.columns(4)
+        for i, stage in enumerate(stages):
+            with cols[i]:
+                if st.button(f"{stage['icon']} {stage['stage'].split(' ', 1)[1]}", key=f"stage_{i}", use_container_width=True):
+                    st.session_state.selected_stage = i
+                    st.rerun()
+        
+        # Display selected stage with enhanced visuals
+        selected = stages[st.session_state.selected_stage]
+        
+        st.markdown(f"""
+        <div class="atos-primary" style="text-align: center;">
+            <div style="font-size: 4em; margin-bottom: 1rem;">{selected['icon']}</div>
+            <h2 style="margin: 0 0 1rem 0; font-size: 2.2em; color: white;">{selected['stage']}</h2>
+            <p style="margin: 0; font-size: 1.2em; color: white;">{selected['objective']}</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # KPI Performance Cards
+        st.markdown("### 📊 Live KPI Performance Metrics")
+        
+        kpi_cols = st.columns(3)
+        for i, kpi in enumerate(selected['kpis']):
+            with kpi_cols[i]:
+                # Simulate performance percentage
+                performance = float(kpi['current'].rstrip('%')) if '%' in kpi['current'] else float(kpi['current']) * 20
+                
+                # Use Streamlit metric instead of complex HTML
+                st.metric(
+                    label=kpi['name'],
+                    value=kpi['current'],
+                    delta=f"Target: {kpi['target']}"
+                )
+                
+                # Simple progress bar using Streamlit
+                st.progress(min(performance/100, 1.0))
+                
+                # Impact description
+                st.info(kpi['impact'])
+        
+        # Revenue Flow Mechanism
+        st.markdown("### 💰 Revenue Flow Mechanism")
+        st.markdown(f"""
+        <div class="atos-dark" style="text-align: center;">
+            <h3 style="margin: 0 0 1rem 0; font-size: 1.5em; color: white;">🔄 How This Stage Creates Revenue</h3>
+            <p style="margin: 0; font-size: 1.2em; line-height: 1.6; color: white;">{selected['revenue_flow']}</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Overall Impact Dashboard
+        st.markdown("### 🎯 Cumulative Revenue Impact")
         
         col1, col2 = st.columns(2)
         
         with col1:
             st.markdown("""
-            ### ✅ Positive Cascade (Excellence Path)
-            1. **Strong Sales KPIs** → High-quality project pipeline
-            2. **Excellent Delivery** → Operational excellence foundation  
-            3. **Superior Operations** → Customer expansion opportunities
-            4. **Cumulative Impact:** 50-100% increase in customer lifetime value
-            """)
+            <div class="atos-primary" style="text-align: center;">
+                <h3 style="margin: 0 0 1.5rem 0; color: white;">⚡ PERFORMANCE GAINS</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="atos-metric">
+                        <h2 style="margin: 0; font-size: 2.5em; color: #0066CC;">30%</h2>
+                        <p style="margin: 0.5rem 0 0 0; color: #2C3E50;">Sales Velocity</p>
+                    </div>
+                    <div class="atos-metric">
+                        <h2 style="margin: 0; font-size: 2.5em; color: #0066CC;">25%</h2>
+                        <p style="margin: 0.5rem 0 0 0; color: #2C3E50;">Delivery Speed</p>
+                    </div>
+                    <div class="atos-metric">
+                        <h2 style="margin: 0; font-size: 2.5em; color: #0066CC;">99.9%</h2>
+                        <p style="margin: 0.5rem 0 0 0; color: #2C3E50;">Reliability</p>
+                    </div>
+                    <div class="atos-metric">
+                        <h2 style="margin: 0; font-size: 2.5em; color: #0066CC;">85%</h2>
+                        <p style="margin: 0.5rem 0 0 0; color: #2C3E50;">Retention Rate</p>
+                    </div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
         
         with col2:
             st.markdown("""
-            ### ❌ Negative Cascade (Poor Performance Path)
-            1. **Poor Sales KPIs** → Reduced deal flow and quality
-            2. **Delivery Struggles** → Operational challenges
-            3. **Service Issues** → Limited expansion and churn risk
-            4. **Cumulative Impact:** 40-60% reduction in customer lifetime value
-            """)
+            <div class="atos-dark" style="text-align: center;">
+                <h3 style="margin: 0 0 1.5rem 0; color: white;">💰 REVENUE MECHANISMS</h3>
+                <div style="text-align: left;">
+                    <div class="atos-card" style="margin-bottom: 1rem; border-left: 4px solid #0066CC;">
+                        <strong style="color: #0066CC;">Revenue Protection:</strong><br>
+                        <span style="color: #2C3E50;">99.9% uptime maintains contracted revenue</span>
+                    </div>
+                    <div class="atos-card" style="margin-bottom: 1rem; border-left: 4px solid #0066CC;">
+                        <strong style="color: #0066CC;">Revenue Acceleration:</strong><br>
+                        <span style="color: #2C3E50;">30% faster time-to-market</span>
+                    </div>
+                    <div class="atos-card" style="margin-bottom: 1rem; border-left: 4px solid #0066CC;">
+                        <strong style="color: #0066CC;">Revenue Expansion:</strong><br>
+                        <span style="color: #2C3E50;">60%+ AI integration premium</span>
+                    </div>
+                    <div class="atos-card" style="border-left: 4px solid #0066CC;">
+                        <strong style="color: #0066CC;">Cost Optimization:</strong><br>
+                        <span style="color: #2C3E50;">80%+ automation coverage</span>
+                    </div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
     
     elif page == "Traditional vs Modern KPIs":
         st.title("⚖️ Traditional vs Modern KPI Analysis")
-        st.markdown("*Understanding maturity levels and adoption barriers*")
+        st.markdown("*Understanding maturity levels and adoption barriers in Managed Service Cloud Operations*")
         
         # Visual maturity comparison cards
         col1, col2 = st.columns(2)
@@ -735,7 +1087,7 @@ def main():
     
     elif page == "AI Impact Analysis":
         st.title("🤖 AI Impact on KPI Performance")
-        st.markdown("*The 58% vs 42% divide in AI implementation success*")
+        st.markdown("*The 58% vs 42% divide in AI implementation success for Managed Service Cloud Operations*")
         
         # Enhanced AI impact with battle-style visualization
         st.markdown("""
@@ -840,89 +1192,74 @@ def main():
     
     elif page == "Implementation Roadmap":
         st.title("🗺️ Implementation Roadmap")
-        st.markdown("*Phased approach to KPI framework deployment*")
+        st.markdown("*Phased approach to Managed Service Cloud Operations KPI framework deployment*")
+        
+        # Investment priorities moved to top
+        st.subheader("💰 Investment Priorities by ROI Timeline")
+        
+        st.markdown("""
+        <div class="atos-dark" style="text-align: center;">
+            <h3 style="margin-bottom: 2rem; color: white;">🎯 STRATEGIC INVESTMENT MATRIX</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+                <div class="atos-secondary" style="padding: 1.5rem; text-align: center;">
+                    <h4 style="color: #0066CC;">🚀 IMMEDIATE</h4>
+                    <p style="color: #2C3E50;"><strong>25% ROI</strong></p>
+                    <p style="color: #6B7280;">Automation Coverage<br>Resource Utilization<br>Cloud Optimization</p>
+                </div>
+                <div class="atos-secondary" style="padding: 1.5rem; text-align: center;">
+                    <h4 style="color: #FF6900;">⚡ MEDIUM</h4>
+                    <p style="color: #2C3E50;"><strong>50% ROI</strong></p>
+                    <p style="color: #6B7280;">Predictive Analytics<br>Service Management<br>Innovation Pipeline</p>
+                </div>
+                <div class="atos-secondary" style="padding: 1.5rem; text-align: center;">
+                    <h4 style="color: #2C3E50;">🎖️ ADVANCED</h4>
+                    <p style="color: #2C3E50;"><strong>70% ROI</strong></p>
+                    <p style="color: #6B7280;">AI Decision Support<br>Technology Integration<br>Process Automation</p>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Interactive phases without timeframes
+        st.subheader("📋 Implementation Phases")
         
         phases = [
             {
-                "name": "Phase 1: Foundation",
-                "duration": "0-6 months",
+                "name": "Foundation",
                 "objectives": "Establish comprehensive KPI measurement capability",
                 "priority_kpis": ["Customer Satisfaction Score", "Service Availability", "Resource Utilization Rate", "Security Compliance Score"],
                 "success_criteria": "100% KPI data availability and accuracy"
             },
             {
-                "name": "Phase 2: Optimization", 
-                "duration": "6-18 months",
+                "name": "Optimization", 
                 "objectives": "Achieve industry-leading performance on traditional KPIs",
                 "priority_kpis": ["Automation Coverage", "Cloud Spend Optimization", "Deployment Frequency", "Predictive Analytics Accuracy"],
                 "success_criteria": "Traditional KPIs at industry benchmark +10%"
             },
             {
-                "name": "Phase 3: Advanced Capabilities",
-                "duration": "18+ months", 
+                "name": "Advanced Capabilities", 
                 "objectives": "Achieve competitive differentiation through advanced KPIs",
                 "priority_kpis": ["Cloud/Data/AI Integration Score", "Innovation Pipeline Velocity", "Technology Modernization Index", "Event Correlation Effectiveness"],
                 "success_criteria": "All modern KPIs performing at target levels"
             },
             {
-                "name": "Phase 4: Continuous Evolution",
-                "duration": "Ongoing",
+                "name": "Continuous Evolution",
                 "objectives": "Maintain competitive advantage through continuous improvement",
                 "priority_kpis": ["Emerging Technology KPIs", "Market Leadership Metrics", "Global Scaling Indicators"],
                 "success_criteria": "Sustained superior performance across all categories"
             }
         ]
         
+        phase_cols = st.columns(2)
         for i, phase in enumerate(phases):
-            st.markdown(f"""
-            <div class="atos-secondary">
-                <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-                    <div style="background: #0052CC; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">{i+1}</div>
-                    <h3 style="margin: 0; color: #0052CC;">{phase['name']} ({phase['duration']})</h3>
-                </div>
-                <div style="margin-bottom: 1rem;">
-                    <h4 style="color: #0052CC; margin-bottom: 0.5rem;">Objectives</h4>
-                    <p style="color: #2C3E50; margin: 0;">{phase['objectives']}</p>
-                </div>
-                <div style="margin-bottom: 1rem;">
-                    <h4 style="color: #0052CC; margin-bottom: 0.5rem;">Priority KPIs</h4>
-                    <p style="color: #2C3E50; margin: 0;">{', '.join(phase['priority_kpis'])}</p>
-                </div>
-                <div>
-                    <h4 style="color: #0052CC; margin-bottom: 0.5rem;">Success Criteria</h4>
-                    <div class="atos-accent" style="padding: 0.75rem; font-size: 0.9em;">{phase['success_criteria']}</div>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
-        
-        # Enhanced investment priorities with interactive elements
-        st.subheader("💰 Investment Priorities by ROI Timeline")
-        
-        # Create investment priority matrix
-        st.markdown("""
-        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2rem; border-radius: 20px; color: white; margin: 2rem 0;">
-            <h3 style="text-align: center; margin-bottom: 2rem;">🎯 STRATEGIC INVESTMENT MATRIX</h3>
-            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
-                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; text-align: center;">
-                    <h4 style="color: #2ecc71;">🚀 IMMEDIATE (0-6M)</h4>
-                    <p><strong>25% ROI</strong></p>
-                    <p>Automation Coverage<br>Resource Utilization<br>Cloud Optimization</p>
-                </div>
-                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; text-align: center;">
-                    <h4 style="color: #f39c12;">⚡ MEDIUM (6-18M)</h4>
-                    <p><strong>50% ROI</strong></p>
-                    <p>Predictive Analytics<br>Service Management<br>Innovation Pipeline</p>
-                </div>
-                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; text-align: center;">
-                    <h4 style="color: #e74c3c;">🎖️ ADVANCED (18M+)</h4>
-                    <p><strong>70% ROI</strong></p>
-                    <p>AI Decision Support<br>Technology Integration<br>Process Automation</p>
-                </div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # Skip the chart for now - focus on the visual matrix above
+            col = phase_cols[i % 2]
+            with col:
+                with st.expander(f"Phase {i+1}: {phase['name']}"):
+                    st.markdown(f"**Objectives:** {phase['objectives']}")
+                    st.markdown("**Priority KPIs:**")
+                    for kpi in phase['priority_kpis']:
+                        st.markdown(f"• {kpi}")
+                    st.markdown(f"**Success Criteria:** {phase['success_criteria']}")
     
     # Footer
     st.sidebar.markdown("---")
