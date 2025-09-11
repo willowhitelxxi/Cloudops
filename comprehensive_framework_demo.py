@@ -167,7 +167,7 @@ def create_outcome_overview():
             "title": "Cost Reduction & Vendor Management",
             "description": "Drive 10-15% TCO reduction through standardisation and automation",
             "kpis": ["TCO Reduction %", "Cloud Spend Optimization", "Vendor Cost Savings"],
-            "target": "$25-40M annual savings"
+            "target": "10-15% TCO reduction"
         },
         {
             "title": "Security, Compliance & Risk Management", 
@@ -283,8 +283,8 @@ def main():
         with col4:
             st.markdown("""
             <div class="atos-metric">
-                <h3 style="color: #0066CC; margin: 0 0 0.5rem 0;">$70-105M Impact</h3>
-                <p style="color: #6B7280; margin: 0;">Cumulative revenue lifecycle value</p>
+                <h3 style="color: #0066CC; margin: 0 0 0.5rem 0;">30-50% Revenue Impact</h3>
+                <p style="color: #6B7280; margin: 0;">Improvement in key financial metrics</p>
             </div>
             """, unsafe_allow_html=True)
         
@@ -702,33 +702,32 @@ def main():
         )
         st.plotly_chart(fig, use_container_width=True)
         
-        # Revenue impact summary
-        st.subheader("💰 Revenue Impact Analysis")
+        # Performance impact summary
+        st.subheader("📈 Performance Impact Analysis")
         
         col1, col2 = st.columns(2)
         
         with col1:
             impact_data = pd.DataFrame({
-                'Impact Area': list(revenue_impact.keys()),
-                'Value ($M)': list(revenue_impact.values())
+                'Impact Area': ['Cost Reduction', 'Delivery Efficiency', 'Customer Retention', 'Innovation Premium', 'Operational Excellence'],
+                'Improvement %': [15, 25, 20, 30, 22]
             })
             
-            fig = px.pie(impact_data, values='Value ($M)', names='Impact Area',
-                        title="Revenue Impact Distribution")
+            fig = px.pie(impact_data, values='Improvement %', names='Impact Area',
+                        title="Performance Improvement Distribution")
             st.plotly_chart(fig, use_container_width=True)
         
         with col2:
-            total_impact = sum(revenue_impact.values())
-            st.markdown(f"""
-            ### 🎯 Total Revenue Impact
-            **${total_impact:.1f}M Annual Value**
+            st.markdown("""
+            ### 🎯 Key Performance Benefits
+            **30-50% Overall Improvement**
             
             **Breakdown:**
-            - Cost Reduction: ${revenue_impact['cost_reduction_impact']:.1f}M
-            - Delivery Efficiency: ${revenue_impact['delivery_efficiency']:.1f}M  
-            - Customer Retention: ${revenue_impact['customer_retention']:.1f}M
-            - Innovation Premium: ${revenue_impact['innovation_premium']:.1f}M
-            - Operational Excellence: ${revenue_impact['operational_excellence']:.1f}M
+            - Cost Reduction: 10-15% TCO improvement
+            - Delivery Efficiency: 20-30% faster completion
+            - Customer Retention: 85%+ renewal rates
+            - Innovation Premium: 25-40% higher revenue per customer
+            - Operational Excellence: 99.9% service availability
             """)
     
     elif page == "Revenue Lifecycle Integration":
@@ -1267,7 +1266,7 @@ def main():
     ### 📋 Framework Summary
     - **28 Strategic KPIs** across 7 categories
     - **5 Key Business Outcomes** alignment
-    - **$70-105M** revenue lifecycle impact
+    - **30-50%** performance improvement impact
     - **4-Phase** implementation roadmap
     """)
 
